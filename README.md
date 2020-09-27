@@ -3,4 +3,5 @@ this purrdata patch maps both joysticks on a PS3 USB controller to pitchbend and
 
 i had some issues with the [bendin] and [bendout] objects so this patch constructs the MIDI code and outputs to [midiout]. the mod wheel uses the regular [ctlout] object. 
 
-Cheers!
+brief demo
+https://youtu.be/SEPr24rPVEk
