@@ -1,0 +1,475 @@
+#N canvas 1602 326 1916 467 12;
+#X obj 942 6 cnv 15 345 441 empty empty empty 20 12 0 14 #521a1a #404040
+0;
+#X obj 7 2 cnv 15 564 443 empty empty empty 20 12 0 14 #44003f #404040
+0;
+#X floatatom 300 140 3 0 0 0 pb-grad pb-gradient -, f 3;
+#X obj 299 182 f, f 2;
+#X obj 338 182 t b f;
+#X obj 299 220 *;
+#X obj 299 273 -;
+#X obj 299 301 * -1;
+#X obj 338 116 sel 255;
+#X msg 338 140 256;
+#X floatatom 364 40 5 0 0 0 X X-AXIS_1gui -, f 5;
+#X floatatom 317 249 5 0 0 1 pb-maxval pb-maxval -, f 5;
+#X obj 397 406 s pb-out;
+#X floatatom 978 62 5 0 0 2 Y Y-AXIS_1gui -, f 5;
+#X obj 978 145 - 128;
+#X obj 978 198 change;
+#X obj 978 171 clip 0 127;
+#X obj 987 413 ctlout;
+#X floatatom 1110 58 5 0 0 2 W W-AXIS_1gui -, f 5;
+#X floatatom 445 40 5 0 0 0 Z Z-AXIS_1gui -, f 5;
+#X obj 445 63 t f b;
+#X obj 364 63 t f b;
+#X obj 397 345 pack;
+#X obj 572 6 cnv 15 368 440 empty empty empty 20 12 0 14 #22371b #404040
+0;
+#X obj 759 176 t b f f;
+#X obj 683 132 sel 8192;
+#X msg 683 157 127;
+#X obj 683 289 pack f f f;
+#X msg 683 312 \$3 \$2 \$1;
+#X obj 683 335 unpack f f f;
+#X obj 683 379 i, f 2;
+#X obj 683 415 midiout 1;
+#X floatatom 844 215 5 0 0 0 - - -, f 5;
+#X obj 844 215 / 128;
+#X obj 844 244 + 64;
+#X obj 782 215 mod 128;
+#X obj 683 182 t b f f;
+#X obj 683 261 f;
+#X obj 33 33 vradio 10 0 0 16 js1-channel empty js1 -3 -13 0 10 #fcfcfc
+#000000 #31d53e 0;
+#X obj 82 33 vradio 10 0 0 16 js2-channel empty js2 -1 -13 0 10 #fcfcfc
+#000000 #31d53e 0;
+#X obj 493 248 v js2;
+#X obj 451 247 v js1;
+#X floatatom 24 203 5 0 0 0 - js1-chanGUI -, f 5;
+#X floatatom 85 202 5 0 0 0 - js2-chanGUI -, f 5;
+#X obj 683 48 r pb-out;
+#X obj 803 95 s ch;
+#X obj 630 215 r ch;
+#X obj 683 73 t a a;
+#X msg 397 374 \$2 \$1;
+#X msg 683 99 \$2;
+#X msg 804 41 \$1;
+#X text 754 415 Pitchbend MIDI OUT;
+#X obj 978 90 t f b;
+#X obj 1110 86 t f b;
+#X obj 987 248 pack;
+#X obj 1142 172 v js2;
+#X obj 1098 172 v js1;
+#X msg 987 280 \$1 1 \$2;
+#X text 1008 12 Mod Wheels;
+#X text 331 6 Joystick 1+2 to Pitchbends;
+#X text 1049 413 Mod Wheel MIDI OUT;
+#X obj 804 70 + 223;
+#X text 581 11 Pitchbend to MIDI code;
+#X text 123 10 PLAYSTATION 3 JOYSTICKS;
+#X text 123 37 FOR PITCHBEND AND MODWHEEL;
+#X text 22 235 set MIDI channel;
+#X obj 8 287 cnv 15 260 156 empty empty empty 20 12 0 14 #b7b7b7 #404040
+0;
+#X obj 223 375 tgl 20 1 empty x_btn_1 X 4 9 0 20 #00fc04 #000000 #000000
+0 1;
+#X obj 244 354 tgl 20 1 empty circ_btn_1 ◯ 4 8 0 20 #00fc04 #000000
+#000000 0 1;
+#X obj 203 354 tgl 20 1 empty sqr_btn_1 ◻ 4 8 0 20 #00fc04 #000000
+#000000 0 1;
+#X obj 223 333 tgl 20 1 empty tri_btn_1 △ 4 8 0 20 #00fc04 #000000
+#000000 0 1;
+#X obj 92 354 tgl 20 1 empty SLCT_1 select -9 -7 0 10 #7c7c7c #000000
+#000000 0 1;
+#X obj 157 354 tgl 20 1 empty STRT_1 start -5 -7 0 10 #7c7c7c #000000
+#000000 0 1;
+#X obj 30 375 tgl 20 1 empty DP_down_1 D 4 8 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 10 354 tgl 20 1 empty DP_left_1 L 4 8 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 51 354 tgl 20 1 empty DP_right_1 R 4 8 0 10 #7c7c7c #000000
+#000000 0 1;
+#X obj 30 333 tgl 20 1 empty DP_up_1 U 4 8 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 30 308 tgl 20 1 empty L1_1 L1 4 11 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 223 288 tgl 20 1 empty R2_1 R2 4 11 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 223 309 tgl 20 1 empty R1_1 R1 4 11 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 30 288 tgl 20 1 empty L2_1 L2 4 11 0 10 #7c7c7c #000000 #000000
+0 1;
+#X obj 180 415 tgl 20 1 empty j1_btn_1 j2 4 11 0 10 #7c7c7c #000000
+#000000 0 1;
+#X obj 78 415 tgl 20 1 empty j2_btn_1 j1 4 11 0 10 #7c7c7c #000000
+#000000 0 1;
+#X floatatom 78 394 4 0 0 2 X X-AXIS_1 dumm, f 4;
+#X floatatom 110 394 4 0 0 2 Y Y-AXIS_1 dumm, f 4;
+#X floatatom 142 394 4 0 0 2 Z Z-AXIS_1 dumm, f 4;
+#X floatatom 174 394 4 0 0 2 W W-AXIS_1 dumm, f 4;
+#N canvas 1602 586 1916 467 initpbmod 0;
+#X obj 155 46 loadbang;
+#X floatatom 111 128 5 0 0 3 pb-maxval - pb-maxval, f 5;
+#X msg 111 99 8192;
+#X floatatom 33 128 3 0 0 3 pb-grad - pb-gradient, f 3;
+#X msg 33 106 64;
+#X obj 481 135 v js2;
+#X obj 380 135 v js1;
+#X floatatom 481 165 5 0 0 0 - - js2-chanGUI, f 5;
+#X floatatom 380 165 5 0 0 0 - - js1-chanGUI, f 5;
+#X obj 481 69 t b f;
+#X obj 380 69 t b f;
+#X obj 513 102 + 1;
+#X obj 412 102 + 1;
+#X obj 481 39 r js2-channel;
+#X obj 380 39 r js1-channel;
+#X obj 209 161 s js1-channel;
+#X obj 255 131 s js2-channel;
+#X msg 253 89 1;
+#X msg 209 137 0;
+#X connect 0 0 4 0;
+#X connect 0 0 2 0;
+#X connect 0 0 18 0;
+#X connect 0 0 17 0;
+#X connect 2 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 9 0 5 0;
+#X connect 9 1 11 0;
+#X connect 10 0 6 0;
+#X connect 10 1 12 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X connect 13 0 9 0;
+#X connect 14 0 10 0;
+#X connect 17 0 16 0;
+#X connect 18 0 15 0;
+#X restore 88 292 pd initpbmod;
+#N canvas 1602 743 1916 466 PS3connect 0;
+#X obj 241 215 cnv 15 684 116 empty empty empty 20 12 0 14 #22371b
+#404040 0;
+#X msg 34 92 open 18;
+#X msg 101 112 close;
+#X msg 121 173 refresh;
+#X msg 116 153 print;
+#X msg 109 133 info;
+#N canvas 1603 103 558 235 see 0;
+#N canvas 108 318 543 264 route 0;
+#X obj 27 14 inlet;
+#X obj 72 226 outlet;
+#X obj 19 226 outlet;
+#X obj 172 226 outlet;
+#X obj 222 204 symbol;
+#X obj 222 226 outlet;
+#X obj 272 204 symbol;
+#X obj 272 226 outlet;
+#X obj 322 204 symbol;
+#X obj 322 226 outlet;
+#X obj 372 204 symbol;
+#X obj 372 226 outlet;
+#X obj 122 225 outlet;
+#X obj 422 204 symbol;
+#X obj 422 226 outlet;
+#X obj 472 204 symbol;
+#X obj 472 226 outlet;
+#X obj 26 63 route open device poll total product manufacturer transport
+type vendorID productID;
+#X connect 0 0 17 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 13 0 14 0;
+#X connect 15 0 16 0;
+#X connect 17 0 2 0;
+#X connect 17 1 1 0;
+#X connect 17 2 12 0;
+#X connect 17 3 3 0;
+#X connect 17 4 4 0;
+#X connect 17 5 6 0;
+#X connect 17 6 8 0;
+#X connect 17 7 10 0;
+#X connect 17 8 13 0;
+#X connect 17 9 15 0;
+#X restore 117 70 pd route info;
+#X obj 81 96 tgl 15 0 empty empty open 0 -6 0 8 #fcfcfc #000000 #000000
+1 1;
+#X obj 110 22 inlet;
+#X obj 123 43 print info;
+#X symbolatom 304 93 0 0 0 0 productID - -;
+#X symbolatom 304 112 0 0 0 0 vendorID - -;
+#X symbolatom 304 151 0 0 0 0 transport - -;
+#X symbolatom 304 171 0 0 0 0 manufacturer - -;
+#X symbolatom 186 192 0 0 0 0 product - -;
+#X floatatom 97 140 5 0 0 0 device - -, f 5;
+#X floatatom 97 162 5 0 0 0 poll - -, f 5;
+#X symbolatom 304 131 0 0 0 0 type - -;
+#X floatatom 97 182 5 0 0 0 total - -, f 5;
+#X connect 0 0 1 0;
+#X connect 0 1 9 0;
+#X connect 0 2 10 0;
+#X connect 0 3 12 0;
+#X connect 0 4 8 0;
+#X connect 0 5 7 0;
+#X connect 0 6 6 0;
+#X connect 0 7 11 0;
+#X connect 0 8 5 0;
+#X connect 0 9 4 0;
+#X connect 2 0 0 0;
+#X connect 2 0 3 0;
+#X restore 63 224 pd see device info;
+#X floatatom 232 144 4 0 0 0 X - X-AXIS_1gui, f 4;
+#X obj 256 297 tgl 25 0 tri_btn_1 empty △ 8 8 0 14 #bcbcbc #000000
+#000000 0 1;
+#X floatatom 276 144 4 0 0 0 Y - Y-AXIS_1gui, f 4;
+#X floatatom 320 144 4 0 0 0 Z - Z-AXIS_1gui, f 4;
+#X obj 296 297 tgl 25 0 circ_btn_1 empty ◯ 8 8 0 14 #bcbcbc #000000
+#000000 0 1;
+#X obj 336 297 tgl 25 0 x_btn_1 empty X 8 8 0 14 #bcbcbc #000000 #000000
+0 1;
+#X obj 376 297 tgl 25 0 sqr_btn_1 empty ◻ 8 8 0 14 #bcbcbc #000000
+#000000 0 1;
+#X obj 416 297 tgl 25 0 L1_1 empty L1 4 8 0 14 #bcbcbc #000000 #000000
+0 1;
+#X obj 456 297 tgl 25 0 R1_1 empty R1 4 8 0 14 #bcbcbc #000000 #000000
+0 1;
+#X obj 496 297 tgl 25 0 L2_1 empty L2 4 8 0 14 #bcbcbc #000000 #000000
+0 1;
+#X obj 536 297 tgl 25 0 R2_1 empty R2 4 8 0 14 #bcbcbc #000000 #000000
+0 1;
+#X obj 576 297 tgl 25 0 SLCT_1 empty SLCT 0 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 616 297 tgl 25 0 STRT_1 empty STRT 0 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 656 297 tgl 25 0 j1_btn_1 empty JB-1 0 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 696 297 tgl 25 0 j2_btn_1 empty JB-2 0 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 736 297 tgl 25 0 DP_up_1 empty UP 7 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 776 297 tgl 25 0 DP_right_1 empty RIGHT 0 12 0 8 #bcbcbc #000000
+#000000 0 1;
+#X obj 256 241 route btn_0 btn_1 btn_2 btn_3 btn_4 btn_5 btn_6 btn_7
+btn_8 btn_9 btn_10 btn_11 btn_12 btn_13 btn_14 btn_15;
+#X obj 816 297 tgl 25 0 DP_down_1 empty DOWN 0 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 856 297 tgl 25 0 DP_left_1 empty LEFT 0 12 0 10 #bcbcbc #000000
+#000000 0 1;
+#X obj 34 200 hid 0;
+#X msg 92 92 poll 3;
+#X floatatom 364 144 4 0 0 0 W - W-AXIS_1gui, f 4;
+#X obj 92 70 bng 15 250 50 0 empty bangpolls polls 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 336 277 change;
+#X obj 376 277 change;
+#X obj 256 277 change;
+#X obj 296 277 change;
+#X obj 536 277 change;
+#X obj 416 277 change;
+#X obj 456 277 change;
+#X floatatom 34 6 5 0 0 1 ctlr_1 ctlr_1 -, f 5;
+#X obj 496 277 change;
+#X obj 656 277 change;
+#X obj 696 277 change;
+#X obj 576 277 change;
+#X obj 616 277 change;
+#X obj 861 277 change;
+#X obj 736 277 change;
+#X obj 776 277 change;
+#X obj 816 277 change;
+#X obj 21 297 s buttonss;
+#X obj 256 219 r buttonss;
+#X obj 117 303 s joystickss;
+#X obj 231 95 r joystickss;
+#X obj 231 118 route abs_x abs_y abs_z abs_rz;
+#X obj 34 248 route key abs;
+#X text 175 14 PLAYSTATION 3 Controller input;
+#X obj 2 335 cnv 15 933 119 empty empty empty 20 12 0 14 #4d4a00 #404040
+0;
+#X floatatom 284 431 5 0 0 1 ctlr_1 - ctlr_1, f 5;
+#X obj 257 390 int;
+#X obj 257 337 loadbang;
+#X obj 257 371 shell;
+#X msg 257 354 cat /proc/bus/input/devices |grep -C 4 PLAY| tail -n1
+|grep -o '[0-9]*' |head -n1, f 84;
+#X text 54 376 AUTOCONNECT PS3 CONTROLLER;
+#X floatatom 608 85 4 0 0 0 X X-AXIS_1gui -, f 4;
+#X floatatom 660 85 4 0 0 0 Y Y-AXIS_1gui -, f 4;
+#X floatatom 712 85 4 0 0 0 Z Z-AXIS_1gui -, f 4;
+#X floatatom 764 85 4 0 0 0 W W-AXIS_1gui -, f 4;
+#X floatatom 608 154 5 0 0 3 X - X-AXIS_1, f 5;
+#X floatatom 660 154 5 0 0 3 Y - Y-AXIS_1, f 5;
+#X floatatom 712 154 5 0 0 3 Z - Z-AXIS_1, f 5;
+#X floatatom 764 154 5 0 0 3 W - W-AXIS_1, f 5;
+#X obj 608 130 * -1;
+#X obj 608 107 - 255;
+#X obj 712 130 * -1;
+#X obj 712 107 - 255;
+#X obj 764 130 * -1;
+#X obj 764 107 - 255;
+#X obj 660 130 * -1;
+#X obj 660 107 - 255;
+#X obj 257 431 bng 15 250 50 0 bangpolls empty polls -36 3 0 10 #fcfcfc
+#000000 #90c890;
+#N canvas 2609 206 542 326 serrrr 0;
+#X obj 30 56 cnv 20 20 20 empty \$0-open-canvas 18 2 10 0 14 #e0e0e0
+#404040 0;
+#X obj 61 61 hradio 15 1 1 27 empty empty empty 0 -8 0 10 #fcfcfc #000000
+#000000 18;
+#X obj 60 26 inlet;
+#X msg 207 197 label \$1;
+#X obj 207 175 makefilename %d;
+#X obj 66 103 int;
+#X obj 66 332 outlet;
+#X msg 208 301 set \$1 \$2;
+#X obj 66 261 trigger bang anything;
+#X obj 208 281 list;
+#X msg 67 205 open \$1;
+#X obj 207 220 send \$0-open-canvas;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 11 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 0 10 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 8 1 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 8 0;
+#X coords 0 -1 1 1 420 18 1 60 60;
+#X restore 34 40 pd serrrr;
+#X obj 257 409 t b f;
+#X text 610 48 inverts joystick values;
+#X connect 1 0 27 0;
+#X connect 2 0 27 0;
+#X connect 3 0 27 0;
+#X connect 4 0 27 0;
+#X connect 5 0 27 0;
+#X connect 24 0 33 0;
+#X connect 24 1 34 0;
+#X connect 24 2 31 0;
+#X connect 24 3 32 0;
+#X connect 24 4 36 0;
+#X connect 24 5 37 0;
+#X connect 24 6 39 0;
+#X connect 24 7 35 0;
+#X connect 24 8 42 0;
+#X connect 24 9 43 0;
+#X connect 24 10 40 0;
+#X connect 24 11 41 0;
+#X connect 24 12 45 0;
+#X connect 24 13 46 0;
+#X connect 24 14 47 0;
+#X connect 24 15 44 0;
+#X connect 27 0 53 0;
+#X connect 27 1 6 0;
+#X connect 28 0 27 0;
+#X connect 30 0 28 0;
+#X connect 31 0 12 0;
+#X connect 32 0 13 0;
+#X connect 33 0 8 0;
+#X connect 34 0 11 0;
+#X connect 35 0 17 0;
+#X connect 36 0 14 0;
+#X connect 37 0 15 0;
+#X connect 38 0 79 0;
+#X connect 39 0 16 0;
+#X connect 40 0 20 0;
+#X connect 41 0 21 0;
+#X connect 42 0 18 0;
+#X connect 43 0 19 0;
+#X connect 44 0 26 0;
+#X connect 45 0 22 0;
+#X connect 46 0 23 0;
+#X connect 47 0 25 0;
+#X connect 49 0 24 0;
+#X connect 51 0 52 0;
+#X connect 52 0 7 0;
+#X connect 52 1 9 0;
+#X connect 52 2 10 0;
+#X connect 52 3 29 0;
+#X connect 53 0 48 0;
+#X connect 53 1 50 0;
+#X connect 57 0 80 0;
+#X connect 58 0 60 0;
+#X connect 59 0 57 0;
+#X connect 60 0 59 0;
+#X connect 62 0 71 0;
+#X connect 63 0 77 0;
+#X connect 64 0 73 0;
+#X connect 65 0 75 0;
+#X connect 70 0 66 0;
+#X connect 71 0 70 0;
+#X connect 72 0 68 0;
+#X connect 73 0 72 0;
+#X connect 74 0 69 0;
+#X connect 75 0 74 0;
+#X connect 76 0 67 0;
+#X connect 77 0 76 0;
+#X connect 79 0 1 0;
+#X connect 80 0 78 0;
+#X connect 80 1 56 0;
+#X restore 88 314 pd PS3connect;
+#X connect 2 0 3 1;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 1;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 22 0;
+#X connect 8 0 9 0;
+#X connect 8 1 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 21 0;
+#X connect 11 0 6 1;
+#X connect 13 0 52 0;
+#X connect 14 0 16 0;
+#X connect 15 0 54 0;
+#X connect 16 0 15 0;
+#X connect 18 0 53 0;
+#X connect 19 0 20 0;
+#X connect 20 0 8 0;
+#X connect 20 1 40 0;
+#X connect 21 0 8 0;
+#X connect 21 1 41 0;
+#X connect 22 0 48 0;
+#X connect 24 0 37 0;
+#X connect 24 1 35 0;
+#X connect 24 2 33 0;
+#X connect 25 0 26 0;
+#X connect 25 1 24 0;
+#X connect 26 0 36 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 29 1 30 0;
+#X connect 29 2 30 0;
+#X connect 30 0 31 0;
+#X connect 33 0 34 0;
+#X connect 34 0 27 2;
+#X connect 35 0 27 1;
+#X connect 36 0 37 0;
+#X connect 36 1 27 1;
+#X connect 36 2 27 2;
+#X connect 37 0 27 0;
+#X connect 40 0 22 1;
+#X connect 41 0 22 1;
+#X connect 44 0 47 0;
+#X connect 46 0 37 1;
+#X connect 47 0 49 0;
+#X connect 47 1 50 0;
+#X connect 48 0 12 0;
+#X connect 49 0 25 0;
+#X connect 50 0 61 0;
+#X connect 52 0 14 0;
+#X connect 52 1 56 0;
+#X connect 53 0 14 0;
+#X connect 53 1 55 0;
+#X connect 54 0 57 0;
+#X connect 55 0 54 1;
+#X connect 56 0 54 1;
+#X connect 57 0 17 0;
+#X connect 61 0 45 0;
